@@ -2,7 +2,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 
-Description: My Dev Portal Stack
+Description: Basisregisters Vlaanderen Dev Portal
 Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
@@ -99,6 +99,11 @@ Parameters:
   #   Default: ''
 
   CustomDomainName:
+    Type: String
+    Description: Optionally provide a custom domain name associated with an ACM cert to create a developer portal at that domain name (provide with the format foo.bar.net). Leave blank to create a developer portal without a custom domain name. Standing up a developer portal stack with a custom domain name will take significantly longer than without.
+    Default: ''
+
+  CustomDomainName2:
     Type: String
     Description: Optionally provide a custom domain name associated with an ACM cert to create a developer portal at that domain name (provide with the format foo.bar.net). Leave blank to create a developer portal without a custom domain name. Standing up a developer portal stack with a custom domain name will take significantly longer than without.
     Default: ''
@@ -1378,6 +1383,10 @@ Resources:
       DistributionConfig:
         Aliases:
           - !Ref CustomDomainName
+          - !Ref CustomDomainName2
+        HttpVersion: http2
+        IPV6Enabled: true
+        PriceClass: PriceClass_100
         CustomErrorResponses:
           - ErrorCode: 403
             ResponseCode: 403
@@ -1401,6 +1410,7 @@ Resources:
         ViewerCertificate:
           AcmCertificateArn: !Ref CustomDomainNameAcmCertArn
           SslSupportMethod: 'sni-only'
+          MinimumProtocolVersion: TLSv1.2_2018
 
   DefaultCloudfrontDistribution:
     Type: AWS::CloudFront::Distribution

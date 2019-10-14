@@ -93,10 +93,10 @@ Parameters:
     Type: String
     Description: The Domain Name (or Prefix) at which your Cognito Hosted UI is located. This should be regionally unique.
 
-  # CognitoDomainAcmCertArn:
-  #   Type: String
-  #   Description: Doesn't yet do anything. Oh well.
-  #   Default: ''
+  CognitoDomainAcmCertArn:
+    Type: String
+    Description: Doesn't yet do anything. Oh well.
+    Default: ''
 
   CustomDomainName:
     Type: String
@@ -1130,7 +1130,7 @@ Resources:
           !Join [ '', [ 'https://', !GetAtt DevPortalSiteS3Bucket.RegionalDomainName, '/index.html?action=login' ]]
         ],
         [
-          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=login' ]]
+          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=login,https://', !If [ UseCustomDomainName, !Ref CustomDomainName2, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=login']]
         ]
       ]
       LogoutURL: !If [ DevelopmentMode,
@@ -1139,7 +1139,7 @@ Resources:
           !Join [ '', [ 'https://', !GetAtt DevPortalSiteS3Bucket.RegionalDomainName, '/index.html?action=logout' ]]
         ],
         [
-          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=logout' ]]
+          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=logout,https://', !If [ UseCustomDomainName, !Ref CustomDomainName2, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=logout']]
         ]
       ]
       AllowedOAuthFlowsUserPoolClient: true
@@ -1185,6 +1185,10 @@ Resources:
                 Effect: Allow
                 Action: 'cognito-idp:DescribeUserPoolDomain'
                 Resource: '*'
+              -
+                Effect: Allow
+                Action: 'cloudfront:UpdateDistribution'
+                Resource: '*'
 
   CognitoUserPoolDomainBackingFn:
     Type: AWS::Serverless::Function
@@ -1203,6 +1207,7 @@ Resources:
       ServiceToken: !GetAtt CognitoUserPoolDomainBackingFn.Arn
       UserPoolId: !Ref CognitoUserPool
       Domain: !Ref CognitoDomainNameOrPrefix
+      CertificateArn: !Ref CognitoDomainAcmCertArn
   
   CognitoIdentityPool:
     Type: AWS::Cognito::IdentityPool

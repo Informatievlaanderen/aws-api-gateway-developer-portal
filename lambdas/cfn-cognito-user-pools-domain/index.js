@@ -10,7 +10,10 @@ exports.handler = async (event, context) => {
       case 'Create':
         await cognitoIdentityServiceProvider.createUserPoolDomain({
           UserPoolId: event.ResourceProperties.UserPoolId,
-          Domain: event.ResourceProperties.Domain
+          Domain: event.ResourceProperties.Domain,
+          CustomDomainConfig: {
+            CertificateArn: event.ResourceProperties.CertificateArn
+          }
         }).promise();
 
         responseData = await cognitoIdentityServiceProvider.describeUserPoolDomain({
@@ -28,7 +31,10 @@ exports.handler = async (event, context) => {
 
         await cognitoIdentityServiceProvider.createUserPoolDomain({
           UserPoolId: event.ResourceProperties.UserPoolId,
-          Domain: event.ResourceProperties.Domain
+          Domain: event.ResourceProperties.Domain,
+          CustomDomainConfig: {
+            CertificateArn: event.ResourceProperties.CertificateArn
+          }
         }).promise();
 
         responseData = await cognitoIdentityServiceProvider.describeUserPoolDomain({

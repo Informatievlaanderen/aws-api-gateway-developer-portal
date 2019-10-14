@@ -13,8 +13,9 @@ sam deploy \
     --parameter-overrides \
     DevPortalSiteS3BucketName="basisregisters-production-dev-portal-static-assets" \
     ArtifactsS3BucketName="basisregisters-production-dev-portal-artifacts" \
-    CognitoDomainNameOrPrefix="basisregisters-production" \
-    StaticAssetRebuildToken="2019-10-17:11" \
+    CognitoDomainNameOrPrefix="auth.basisregisters.vlaanderen" \
+    CognitoDomainAcmCertArn="arn:aws:acm:us-east-1:921707234258:certificate/817a8345-233d-4bb1-a1c8-c8ffafe0ccc7" \
+    StaticAssetRebuildToken="2019-10-18:37" \
     StaticAssetRebuildMode="overwrite-content" \
     CustomDomainName="portal.basisregisters.vlaanderen" \
     CustomDomainName2="portal.basisregisters.vlaanderen.be" \

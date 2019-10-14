@@ -1,3 +1,7 @@
+function usagePlanFilter(usagePlan) {
+  return usagePlan.name.indexOf('-anonymous') === -1;
+}
+
 /**
  * Fetches all usage plans, combining all pages into a single array.
  *
@@ -27,7 +31,7 @@ async function getAllUsagePlans(apiGateway, paramOverrides = {}) {
     usagePlans.push(...response.items)
   }
 
-  return usagePlans
+  return usagePlans.filter(usagePlanFilter)
 }
 
 module.exports = { getAllUsagePlans }

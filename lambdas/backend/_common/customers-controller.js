@@ -3,6 +3,7 @@
 
 'use strict'
 const AWS = require('aws-sdk')
+const uuidV4 = require('uuid/v4')
 const { getAllUsagePlans } = require('../shared/get-all-usage-plans')
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient()
@@ -130,7 +131,8 @@ function createApiKey(cognitoIdentityId, cognitoUserId, error, callback) {
         description: `Dev Portal API Key for Identity Pool user ${cognitoIdentityId} / User Pool user ${cognitoUserId}`,
         enabled: true,
         generateDistinctId: true,
-        name: `${cognitoIdentityId}/${cognitoUserId}`
+        name: `${cognitoIdentityId}/${cognitoUserId}`,
+        value: uuidV4()
     }
 
     apigateway.createApiKey(params, (err, data) => {

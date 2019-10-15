@@ -1130,7 +1130,8 @@ Resources:
           !Join [ '', [ 'https://', !GetAtt DevPortalSiteS3Bucket.RegionalDomainName, '/index.html?action=login' ]]
         ],
         [
-          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=login,https://', !If [ UseCustomDomainName, !Ref CustomDomainName2, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=login']]
+          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=login']],
+          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName2, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=login']]
         ]
       ]
       LogoutURL: !If [ DevelopmentMode,
@@ -1139,7 +1140,8 @@ Resources:
           !Join [ '', [ 'https://', !GetAtt DevPortalSiteS3Bucket.RegionalDomainName, '/index.html?action=logout' ]]
         ],
         [
-          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=logout,https://', !If [ UseCustomDomainName, !Ref CustomDomainName2, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=logout']]
+          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=logout']],
+          !Join [ '', [ 'https://', !If [ UseCustomDomainName, !Ref CustomDomainName2, !GetAtt DefaultCloudfrontDistribution.DomainName ], '/index.html?action=logout']]
         ]
       ]
       AllowedOAuthFlowsUserPoolClient: true

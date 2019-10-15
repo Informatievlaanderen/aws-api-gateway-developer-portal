@@ -1,0 +1,3 @@
+[submodule "deps/webuniversum"]
+	path = dev-portal/src/deps/webuniversum
+	url = git@bitbucket.org:vlaamseoverheid/vl-build.git

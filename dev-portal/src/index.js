@@ -13,6 +13,10 @@ import 'services/get-fragments'
 // semantic-ui
 import 'semantic-ui-css/semantic.css'
 
+import './index.scss';
+import './vlaanderen.scss';
+import './vlaanderen-wp.scss';
+
 // pages
 import Home from 'pages/Home'
 import GettingStarted from 'pages/GettingStarted'
@@ -21,9 +25,9 @@ import Apis from 'pages/Apis'
 import { Admin } from 'pages/Admin'
 
 // components
-import Header from 'components/Header'
+import Header from 'components/header/Header'
 import NavBar from 'components/NavBar'
-import Footer from 'components/Footer'
+import Footer from 'components/footer/Footer'
 
 import AlertPopup from 'components/AlertPopup'
 import GlobalModal from 'components/Modal'
@@ -31,7 +35,6 @@ import Feedback from './components/Feedback'
 import ApiSearch from './components/ApiSearch'
 
 import { isAdmin, init, login, logout } from 'services/self'
-import './index.css';
 
 // TODO: Feedback should be enabled if
 // the following is true && the current

@@ -3,6 +3,7 @@
 
 import React from 'react'
 import { observer } from 'mobx-react'
+import './Footer.scss';
 
 export const Footer = observer(
   class Footer extends React.Component {
@@ -27,9 +28,9 @@ export const Footer = observer(
               <div id="vlaanderen-footer-info-title">Dit is een officiële website van de Vlaamse overheid</div>
               <div id="vlaanderen-footer-info-publisher">
                 <span>uitgegeven door&nbsp;</span>
-                <span itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-                  <a itemprop="url" href="https://www.vlaanderen.be/nl/contact/adressengids/diensten-van-de-vlaamse-overheid/administratieve-diensten-van-de-vlaamse-overheid/beleidsdomein-kanselarij-en-bestuur/agentschap-informatie-vlaanderen" target="_self">
-                    <span itemprop="name">het Agentschap Informatie Vlaanderen</span>
+                <span itemProp="publisher" itemScope="" itemType="http://schema.org/Organization">
+                  <a itemProp="url" href="https://www.vlaanderen.be/nl/contact/adressengids/diensten-van-de-vlaamse-overheid/administratieve-diensten-van-de-vlaamse-overheid/beleidsdomein-kanselarij-en-bestuur/agentschap-informatie-vlaanderen" target="_self">
+                    <span itemProp="name">het Agentschap Informatie Vlaanderen</span>
                   </a><span id="vbrVersion">{version}</span>
                 </span>
               </div>

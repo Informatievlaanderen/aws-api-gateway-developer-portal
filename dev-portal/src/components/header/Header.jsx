@@ -3,6 +3,7 @@
 
 import React from 'react'
 import { observer } from 'mobx-react'
+import './Header.scss';
 
 export const Header = observer(
   class Header extends React.Component {

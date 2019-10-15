@@ -16,8 +16,6 @@ import Markdown from 'react-markdown/with-html'
 export const fragments = observable({})
 
 loadHtml('/custom-content/content-fragments/GettingStarted.md', 'GettingStarted')
-loadHtml('/custom-content/content-fragments/Home.md', 'Home')
-loadHtml('/custom-content/content-fragments/APIs.md', 'APIs')
 
 /**
  * 

@@ -8,6 +8,7 @@ import './FunctionalNavigation.scss';
 
 import { isAdmin, isAuthenticated, logout, getLoginRedirectUrl } from 'services/self'
 import { cognitoDomain, cognitoClientId } from '../../services/api'
+import { store } from 'services/state'
 
 export const FunctionalNavigation = observer(
   class FunctionalNavigation extends React.Component {
@@ -21,11 +22,16 @@ export const FunctionalNavigation = observer(
         <li className="vl-functional-header__action"><p><Link to="/admin">Beheer</Link></p></li>
       ) : "";
 
+      var apiKey = store.apiKey ? (
+        <li className="vl-content-header__action"><p>API Key: <span id="api-key">{store.apiKey}</span></p></li>
+      ) : "";
+
       return isAuthenticated() ?
         (
           <ul>
             {adminMenu}
-            <li className="vl-functional-header__action"><p><a onClick={logout}>Meld af</a></p></li>
+            {apiKey}
+            <li className="vl-functional-header__action"><p><a onClick={logout}>Afmelden</a></p></li>
           </ul>
         ) : (
           <ul>

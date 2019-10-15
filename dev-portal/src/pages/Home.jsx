@@ -18,8 +18,8 @@ export const HomePage = observer(
     insertRegisterLink() {
       var registerText = (
         <article role="none">
-          <h3 className="vl-spotlight__title">Registratie</h3>
-          <p className="vl-spotlight__subtitle">Hoe schrijf ik mij in?</p>
+          <h3 className="vl-spotlight__title">Registreren</h3>
+          <p className="vl-spotlight__subtitle">Ik wil mijzelf registreren als ontwikkelaar</p>
           <div className="vl-spotlight__text"></div>
         </article>)
 
@@ -87,7 +87,7 @@ export const HomePage = observer(
                     <Link to="/getting-started" className="vl-spotlight">
                       <article role="none">
                         <h3 className="vl-spotlight__title">Handleiding</h3>
-                        <p className="vl-spotlight__subtitle">Hoe gebruik ik een API?</p>
+                        <p className="vl-spotlight__subtitle">Hoe maak ik gebruik van de beschikbare API's?</p>
                         <div className="vl-spotlight__text"></div>
                       </article>
                     </Link>
@@ -97,7 +97,7 @@ export const HomePage = observer(
                     <Link to="/apis" className="vl-spotlight">
                       <article role="none">
                         <h3 className="vl-spotlight__title">Aanbod</h3>
-                        <p className="vl-spotlight__subtitle">Welke APIs zijn er?</p>
+                        <p className="vl-spotlight__subtitle">Welke API's zijn er?</p>
                         <div className="vl-spotlight__text"></div>
                       </article>
                     </Link>

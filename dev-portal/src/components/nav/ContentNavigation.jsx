@@ -8,6 +8,7 @@ import './ContentNavigation.scss';
 
 import { isAdmin, isAuthenticated, logout, getLoginRedirectUrl } from 'services/self'
 import { cognitoDomain, cognitoClientId } from '../../services/api'
+import { store } from 'services/state'
 
 export const ContentNavigation = observer(
   class ContentNavigation extends React.Component {
@@ -21,11 +22,16 @@ export const ContentNavigation = observer(
         <li className="vl-content-header__action"><p><Link to="/admin">Beheer</Link></p></li>
       ) : "";
 
+      var apiKey = store.apiKey ? (
+        <li className="vl-content-header__action"><p>API Key: <span id="api-key">{store.apiKey}</span></p></li>
+      ) : "";
+
       return isAuthenticated() ?
         (
           <ul className="vl-content-header__actions">
             {adminMenu}
-            <li className="vl-content-header__action"><p><a style={{cursor: 'pointer'}} onClick={logout}>Meld af</a></p></li>
+            {apiKey}
+            <li className="vl-content-header__action"><p><a style={{cursor: 'pointer'}} onClick={logout}>Afmelden</a></p></li>
           </ul>
         ) : (
           <ul className="vl-content-header__actions">

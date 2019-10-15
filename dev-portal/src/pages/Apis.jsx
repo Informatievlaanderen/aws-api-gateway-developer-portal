@@ -11,7 +11,7 @@ import 'swagger-ui/dist/swagger-ui.css'
 import { isAuthenticated } from 'services/self'
 import { updateUsagePlansAndApisList, getApi } from 'services/api-catalog';
 
-import SwaggerLayoutPlugin from 'components/SwaggerUiLayout'
+import SwaggerLayoutPlugin from 'components/swagger/SwaggerUiLayout'
 
 import { store } from 'services/state.js'
 import { observer } from 'mobx-react'
@@ -50,8 +50,8 @@ export default observer(class ApisPage extends React.Component {
 
     if (store.apiList.loaded) {
       if (!store.apiList.apiGateway.length && !store.apiList.generic.length) {
-        errorHeader = `Geen APIs beschikbaar`
-        errorBody = `Momenteel zijn er nog geen APIs beschikbaar voor je account. Contacteer de beheerder.`
+        errorHeader = `Geen API's beschikbaar`
+        errorBody = `Momenteel zijn er nog geen API's beschikbaar voor je account. Contacteer de beheerder.`
       } else if (!store.api) {
         errorHeader = `Onbekende API`
         errorBody = `De geselecteerde API bestaat niet.`
@@ -78,7 +78,7 @@ export default observer(class ApisPage extends React.Component {
                       <div className="wp-pt-heading__content">
                         <div className="vl-typography">
                           <p className="vl-introduction">
-                            Ontdek hier ons volledig aanbod van <strong>Informatie Vlaanderen</strong> APIs.
+                            Ontdek hier ons volledig aanbod van <strong>Informatie Vlaanderen</strong> API's.
                           </p>
                         </div>
                       </div>
@@ -92,7 +92,7 @@ export default observer(class ApisPage extends React.Component {
               <div className="vl-layout">
                 
                 <div className="swagger-section" style={{ marginTop: 20 }}>
-                  <div className="swagger-ui-wrap" id="swagger-ui-container" style={{ padding: "0 20px" }}>
+                  <div className="swagger-ui-wrap" id="swagger-ui-container">
                     {errorHeader && errorBody && (
                       <div className="vl-alert vl-alert--warning" role="alert">
                         <div className="vl-alert__content">

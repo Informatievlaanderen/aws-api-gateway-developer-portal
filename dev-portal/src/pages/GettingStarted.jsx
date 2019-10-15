@@ -30,7 +30,7 @@ export default observer(() => (
                   <div className="wp-pt-heading__content">
                     <div className="vl-typography">
                       <p className="vl-introduction">
-                        Hoe ga ik aan de slag met dit <strong>portaal</strong> en de <strong>APIs</strong>?.
+                        Hoe ga ik aan de slag met dit <strong>portaal</strong> en de <strong>API's</strong>?.
                       </p>
                     </div>
                   </div>

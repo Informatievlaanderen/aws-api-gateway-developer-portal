@@ -26,7 +26,6 @@ import { Admin } from 'pages/Admin'
 
 // components
 import Header from 'components/header/Header'
-import NavBar from 'components/NavBar'
 import Footer from 'components/footer/Footer'
 
 import AlertPopup from 'components/AlertPopup'
@@ -67,7 +66,6 @@ class App extends React.Component {
       <BrowserRouter>
         <React.Fragment>
           <Header />
-          <NavBar />
           <GlobalModal />
           <Switch>
             <Route exact path="/" component={Home} />
@@ -89,7 +87,7 @@ class App extends React.Component {
             <Route path="/apis/:apiId/:stage" component={Apis} />
             <Route path="/login" render={() => { login(); return <Redirect to="/" /> }} />
             <Route path="/logout" render={() => { logout(); return <Redirect to="/" /> }} />
-            <Route component={() => <h2>Page not found</h2>} />
+            <Route component={() => <h2>Pagina niet gevonden</h2>} />
           </Switch>
           <Footer />
           {feedbackEnabled && <Feedback />}

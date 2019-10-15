@@ -1,0 +1,29 @@
+#vlaanderen-functional-nav {
+  left: 0;
+  right: 0;
+  top: 45px;
+  width: 100%;
+  display: block;
+
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+  font-family: "Flanders Art Sans", sans-serif;
+  -webkit-text-size-adjust: none;
+  font-smoothing: antialiased !important;
+  text-rendering: optimizeLegibility;
+}
+
+.vl-functional-header__actions {
+  padding: 1rem .5rem;
+  margin-top: -1.2rem;
+  background-color: "#f7f9fc";
+}
+
+.vl-functional-header__actions a {
+  text-decoration: none;
+}
+
+.vl-functional-header__actions a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,40 @@
+#vlaanderen-content-nav {
+  left: 0;
+  right: 0;
+  top: 45px;
+  width: 100%;
+  display: block;
+
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+  font-family: "Flanders Art Sans", sans-serif;
+  -webkit-text-size-adjust: none;
+  font-smoothing: antialiased !important;
+  text-rendering: optimizeLegibility;
+}
+
+.vl-content-header--has-actions::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 0.2rem;
+  background-color: #cad8eb;
+  z-index: 2;
+}
+
+.vl-content-header__actions {
+  background: #cad8eb;
+}
+
+.vl-content-header__actions a {
+  color: #05c !important;
+  text-decoration: none;
+}
+
+.vl-content-header__actions a:hover {
+  text-decoration: underline;
+}

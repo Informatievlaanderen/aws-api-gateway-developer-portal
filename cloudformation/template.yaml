@@ -1050,17 +1050,18 @@ Resources:
     Type: AWS::Cognito::UserPool
     Properties:
       UserPoolName: !Ref CognitoIdentityPoolName
+      AutoVerifiedAttributes:
+        - email
       LambdaConfig:
         PreSignUp: !GetAtt CognitoUserPoolsConfirmationStrategyFunction.Arn
+      UsernameAttributes:
+        - email
       Policies:
         PasswordPolicy:
           MinimumLength: 12
           RequireLowercase: true
+          RequireUppercase: true
           RequireNumbers: true
-      Schema:
-        - AttributeDataType: String
-          Name: email
-          Required: false
 
   CognitoUserPoolClient:
     Type: AWS::Cognito::UserPoolClient

@@ -1,9 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="utf-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <link rel="shortcut icon" href="%PUBLIC_URL%/custom-content/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+    
+    <title>Basisregisters Vlaanderen - API Portaal</title>
+    <meta name="description" content="Een stelsel van authentieke gegevensbronnen van de Vlaamse Overheid.">
+
+    <script type="text/javascript" src="https://basisregisters.vlaanderen/config.js?v=<%= Math.floor(Math.random() * Math.floor(10000000)) %>"></script>
+
+    <link rel="icon" href="%PUBLIC_URL%/custom-content/favicon.ico?v=gAElMxQYY">
+    <link rel="icon" type="image/png" sizes="194x194" href="%PUBLIC_URL%/custom-content/icon/favicon-194x194.png?v=gAElMxQYY">
+    <link rel="icon" type="image/png" sizes="192x192" href="%PUBLIC_URL%/custom-content/icon/android-chrome-192x192.png?v=gAElMxQYY">
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/custom-content/icon/favicon-32x32.png?v=gAElMxQYY">
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/custom-content/icon/favicon-16x16.png?v=gAElMxQYY">
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/custom-content/icon/apple-touch-icon.png?v=gAElMxQYY">
+    <link rel="mask-icon" color="#ffffff" href="%PUBLIC_URL%/custom-content/icon/safari-pinned-tab.svg?v=gAElMxQYY">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/custom-content/icon/favicon.ico?v=gAElMxQYY">
+    <link rel="manifest" href="%PUBLIC_URL%/custom-content/manifest.json?v=gAElMxQYY">
+    <meta name="apple-mobile-web-app-title" content="Basisregisters Vlaanderen">
+    <meta name="application-name" content="Basisregisters Vlaanderen">
+    <meta name="msapplication-TileColor" content="#ffe615">
+    <meta name="msapplication-TileImage" content="icon/mstile-144x144.png?v=gAElMxQYY">
+    <meta name="msapplication-config" content="browserconfig.xml?v=gAElMxQYY">
+    <meta name="theme-color" content="#ffe615">
 
     <script type="text/javascript" src="%PUBLIC_URL%/config.js"></script>
     <script type="text/javascript" src="%PUBLIC_URL%/apigateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
@@ -18,9 +44,16 @@
     <script type="text/javascript" src="%PUBLIC_URL%/apigateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
     <script type="text/javascript" src="%PUBLIC_URL%/apigateway-js-sdk/apigClient.js"></script>
     <link rel="stylesheet" href="%PUBLIC_URL%/custom-content/styles.css">
-    <title>Developer Portal</title>
   </head>
   <body>
+    <noscript>
+      <strong>We're sorry but base-registries doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
     <div id="root"></div>
+
+    <script type="text/javascript">
+      String.prototype.trim = String.prototype.trim || function trim() { return this.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); };
+    </script>
   </body>
 </html>

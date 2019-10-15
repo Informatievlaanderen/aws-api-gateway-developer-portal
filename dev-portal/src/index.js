@@ -21,9 +21,12 @@ import Apis from 'pages/Apis'
 import { Admin } from 'pages/Admin'
 
 // components
+import Header from 'components/Header'
+import NavBar from 'components/NavBar'
+import Footer from 'components/Footer'
+
 import AlertPopup from 'components/AlertPopup'
 import GlobalModal from 'components/Modal'
-import NavBar from 'components/NavBar'
 import Feedback from './components/Feedback'
 import ApiSearch from './components/ApiSearch'
 
@@ -60,6 +63,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <React.Fragment>
+          <Header />
           <NavBar />
           <GlobalModal />
           <Switch>
@@ -84,6 +88,7 @@ class App extends React.Component {
             <Route path="/logout" render={() => { logout(); return <Redirect to="/" /> }} />
             <Route component={() => <h2>Page not found</h2>} />
           </Switch>
+          <Footer />
           {feedbackEnabled && <Feedback />}
           <AlertPopup />
         </React.Fragment>

@@ -18,7 +18,7 @@ export const FunctionalNavigation = observer(
 
     insertAuthMenu() {
       var adminMenu = isAdmin() ? (
-        <li className="vl-content-header__action"><p><Link to="/admin">Beheer</Link></p></li>
+        <li className="vl-functional-header__action"><p><Link to="/admin">Beheer</Link></p></li>
       ) : "";
 
       return isAuthenticated() ?

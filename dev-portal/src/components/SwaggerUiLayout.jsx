@@ -3,9 +3,6 @@
 
 import React from 'react'
 
-// semantic-ui
-import { Button, Header, Image, Container } from 'semantic-ui-react'
-
 // services
 import { subscribe, unsubscribe } from 'services/api-catalog'
 import { isAuthenticated } from 'services/self'
@@ -50,14 +47,11 @@ const OperationsReplacement = observer(({ specSelectors }) => {
 const InfoReplacement = observer(({ specSelectors }) => {
   const basePath = specSelectors.basePath()
   const host = specSelectors.host()
-  const externalDocs = specSelectors.externalDocs()
+  // const externalDocs = specSelectors.externalDocs()
 
   return (
     <Container fluid textAlign='left' className="fixfloat" style={{ padding: "40px 0px" }}>
       <div style={{ display: "flex" }}>
-        {/* <div style={{ flex: "0 0 auto", marginRight: "20px" }}>
-          <Image size='small' src={store.api.logo} />
-        </div> */}
         <div>
           <Header as='h1'>{store.api.swagger.info.title}</Header>
           <div style={{ display: "flex" }}>
@@ -76,7 +70,7 @@ const InfoReplacement = observer(({ specSelectors }) => {
               {/* <p>{store.api.usagePlan.name}</p> */}
             </div>
           </div>
-          <p>{externalDocs}</p>
+          {/* <p>{externalDocs}</p> */}
           <SubscriptionButtons />
           {store.api.sdkGeneration && <GetSdkButton />}
         </div>

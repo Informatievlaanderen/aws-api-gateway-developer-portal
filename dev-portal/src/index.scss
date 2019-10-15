@@ -16,6 +16,10 @@
   padding-top: 3rem;
 }
 
+.vl-region:first-child {
+  padding-top: 0rem !important;
+}
+
 @media (max-width: 580px) {
   #app { padding-top: 45px; }
 

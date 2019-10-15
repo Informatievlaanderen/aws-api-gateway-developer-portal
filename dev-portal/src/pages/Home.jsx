@@ -80,13 +80,7 @@ export const HomePage = observer(
               <div className="vl-layout">
                 <div className="vl-grid">
                   <div className="vl-col--4-12 vl-col--12-12--s">
-                    <a href={`${cognitoDomain}/signup?response_type=token&client_id=${cognitoClientId}&redirect_uri=${this.redirectUri}`} className="vl-spotlight">
-                      <article role="none">
-                        <h3 className="vl-spotlight__title">Registratie</h3>
-                        <p className="vl-spotlight__subtitle">Hoe schrijf ik mij in?</p>
-                        <div className="vl-spotlight__text"></div>
-                      </article>
-                    </a>
+                    {this.insertRegisterLink()}
                   </div>
                   
                   <div className="vl-col--4-12 vl-col--12-12--s">
@@ -100,7 +94,7 @@ export const HomePage = observer(
                   </div>
 
                   <div className="vl-col--4-12 vl-col--12-12--s">
-                  <Link to="/apis" className="vl-spotlight">
+                    <Link to="/apis" className="vl-spotlight">
                       <article role="none">
                         <h3 className="vl-spotlight__title">Aanbod</h3>
                         <p className="vl-spotlight__subtitle">Welke APIs zijn er?</p>

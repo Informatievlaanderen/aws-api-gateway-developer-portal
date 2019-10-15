@@ -3,24 +3,20 @@
 
 import React from 'react'
 
-// swagger-ui
+import { Link } from 'react-router-dom'
+
 import SwaggerUI from 'swagger-ui'
 import 'swagger-ui/dist/swagger-ui.css'
 
-// semantic-ui
-import { Container, Header, Icon } from 'semantic-ui-react'
-
-// services
 import { isAuthenticated } from 'services/self'
 import { updateUsagePlansAndApisList, getApi } from 'services/api-catalog';
 
-// components
-import ApisMenu from 'components/ApisMenu'
 import SwaggerLayoutPlugin from 'components/SwaggerUiLayout'
 
-// state
 import { store } from 'services/state.js'
 import { observer } from 'mobx-react'
+
+import FunctionalNavigation from '../components/nav/FunctionalNavigation'
 
 export default observer(class ApisPage extends React.Component {
   componentDidMount() { this.updateApi().then(() => updateUsagePlansAndApisList(true)) }
@@ -54,31 +50,65 @@ export default observer(class ApisPage extends React.Component {
 
     if (store.apiList.loaded) {
       if (!store.apiList.apiGateway.length && !store.apiList.generic.length) {
-        errorHeader = `No APIs Published`
-        errorBody = `Your administrator hasn't added any APIs to your account. Please contact them to publish an API.`
+        errorHeader = `Geen APIs beschikbaar`
+        errorBody = `Momenteel zijn er nog geen APIs beschikbaar voor je account. Contacteer de beheerder.`
       } else if (!store.api) {
-        errorHeader = `No Such API`
-        errorBody = `The selected API doesn't exist.`
+        errorHeader = `Onbekende API`
+        errorBody = `De geselecteerde API bestaat niet.`
       }
     }
 
     return (
-      <div style={{ display: "flex", flex: "1 1 auto", overflow: "hidden" }}>
-        <ApisMenu path={this.props.match} />
-        <div className="swagger-section" style={{ flex: "1 1 auto", overflow: 'auto' }}>
-          <div className="swagger-ui-wrap" id="swagger-ui-container" style={{ padding: "0 20px" }}>
-            {errorHeader && errorBody && (
-              <React.Fragment>
-                <Header as='h2' icon textAlign="center" style={{ padding: "40px 0px" }}>
-                  <Icon name='warning sign' circular />
-                  <Header.Content>{errorHeader}</Header.Content>
-                </Header>
-                <Container text textAlign='justified'>
-                  <p>{errorBody}</p>
-                </Container>
-              </React.Fragment>
-            )}
-          </div>
+      <div>
+        <FunctionalNavigation />
+
+        <div className="vl-page">
+          <main id="main" itemProp="mainContentOfPage" role="main" tabIndex="0" className="vl-main-content">
+            <div className="vl-region vl-region--no-space-bottom">
+              <div className="vl-layout">
+                <header className="wp-pt-heading">
+                  <div className="wp-pt-heading__parent">
+                    <Link to="/" className="router-link-active vl-link vl-link--bold">Overzicht</Link>
+                  </div>
+                  <div className="wp-pt-heading__title-wrapper">
+                    <h1 className="wp-pt-heading__title vl-title vl-title--h1">Aanbod</h1>
+                  </div>
+                  <div className="vl-grid">
+                    <div className="vl-col--9-12 vl-col--12-12--s">
+                      <div className="wp-pt-heading__content">
+                        <div className="vl-typography">
+                          <p className="vl-introduction">
+                            Ontdek hier ons volledig aanbod van <strong>Informatie Vlaanderen</strong> APIs.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+              </div>
+            </div>
+
+            <div className="vl-region">
+              <div className="vl-layout">
+                
+                <div className="swagger-section" style={{ marginTop: 20 }}>
+                  <div className="swagger-ui-wrap" id="swagger-ui-container" style={{ padding: "0 20px" }}>
+                    {errorHeader && errorBody && (
+                      <div className="vl-alert vl-alert--warning" role="alert">
+                        <div className="vl-alert__content">
+                          <p className="vl-alert__title">{errorHeader}</p>
+                          <div className="vl-alert__message">
+                            <p>{errorBody}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </main>
         </div>
       </div>
     )

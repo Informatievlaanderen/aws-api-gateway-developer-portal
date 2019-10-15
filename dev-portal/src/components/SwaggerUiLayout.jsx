@@ -17,7 +17,32 @@ import { observer } from 'mobx-react'
 import { store } from 'services/state.js'
 
 // Create the plugin that provides our layout component
-export const SwaggerLayoutPlugin = () => ({ components: { InfoContainer: InfoReplacement } })
+//export const SwaggerLayoutPlugin = () => ({ components: { InfoContainer: InfoReplacement } })
+export const SwaggerLayoutPlugin = () => ({
+  components: {
+    InfoContainer: InfoReplacement,
+    SchemesContainer: SchemesReplacement,
+    AuthorizeBtnContainer: AuthorizeBtnReplacement,
+    ServersContainer: ServersReplacement,
+    operations: OperationsReplacement
+  }
+})
+
+const SchemesReplacement = observer(({ specSelectors }) => {
+  return (<div></div>)
+})
+
+const ServersReplacement = observer(({ specSelectors }) => {
+  return (<div></div>)
+})
+
+const AuthorizeBtnReplacement = observer(({ specSelectors }) => {
+  return (<div></div>)
+})
+
+const OperationsReplacement = observer(({ specSelectors }) => {
+  return (<div></div>)
+})
 
 // replaces the InfoContainer component
 // https://github.com/swagger-api/swagger-ui/blob/dd3afdc45656bda2a64ae6a7f9bdad006ea98149/src/core/components/layouts/base.jsx
@@ -30,9 +55,9 @@ const InfoReplacement = observer(({ specSelectors }) => {
   return (
     <Container fluid textAlign='left' className="fixfloat" style={{ padding: "40px 0px" }}>
       <div style={{ display: "flex" }}>
-        <div style={{ flex: "0 0 auto", marginRight: "20px" }}>
+        {/* <div style={{ flex: "0 0 auto", marginRight: "20px" }}>
           <Image size='small' src={store.api.logo} />
-        </div>
+        </div> */}
         <div>
           <Header as='h1'>{store.api.swagger.info.title}</Header>
           <div style={{ display: "flex" }}>

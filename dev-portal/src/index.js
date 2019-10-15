@@ -10,9 +10,6 @@ import * as queryString from 'query-string'
 // content-fragments (import here to start this ASAP)
 import 'services/get-fragments'
 
-// semantic-ui
-import 'semantic-ui-css/semantic.css'
-
 import './index.scss';
 import './vlaanderen.scss';
 import './vlaanderen-wp.scss';

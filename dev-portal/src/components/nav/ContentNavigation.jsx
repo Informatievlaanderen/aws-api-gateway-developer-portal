@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import './ContentNavigation.scss';
 
@@ -16,11 +17,15 @@ export const ContentNavigation = observer(
     }
 
     insertAuthMenu() {
+      var adminMenu = isAdmin() ? (
+        <li className="vl-content-header__action"><p><Link to="/admin">Beheer</Link></p></li>
+      ) : "";
+
       return isAuthenticated() ?
         (
           <ul className="vl-content-header__actions">
-            <li className="vl-content-header__action"><p>John Bla ({isAdmin() ? "Beheerder" : "Gebruiker"})</p></li>
-            <li className="vl-content-header__action"><p><a onClick={logout}>Meld af</a></p></li>
+            {adminMenu}
+            <li className="vl-content-header__action"><p><a style={{cursor: 'pointer'}} onClick={logout}>Meld af</a></p></li>
           </ul>
         ) : (
           <ul className="vl-content-header__actions">

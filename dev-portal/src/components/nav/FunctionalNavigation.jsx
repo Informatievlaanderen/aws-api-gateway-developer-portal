@@ -23,7 +23,7 @@ export const FunctionalNavigation = observer(
       ) : "";
 
       var apiKey = store.apiKey ? (
-        <li className="vl-content-header__action"><p>API Key: <span id="api-key">{store.apiKey}</span></p></li>
+        <li className="vl-functional-header__action"><p>API Key: <span id="api-key">{store.apiKey}</span></p></li>
       ) : "";
 
       return isAuthenticated() ?

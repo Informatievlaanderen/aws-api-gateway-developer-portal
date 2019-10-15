@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import './FunctionalNavigation.scss';
 
@@ -16,10 +17,14 @@ export const FunctionalNavigation = observer(
     }
 
     insertAuthMenu() {
+      var adminMenu = isAdmin() ? (
+        <li className="vl-content-header__action"><p><Link to="/admin">Beheer</Link></p></li>
+      ) : "";
+
       return isAuthenticated() ?
         (
           <ul>
-            <li className="vl-functional-header__action"><p>John Bla ({isAdmin() ? "Beheerder" : "Gebruiker"})</p></li>
+            {adminMenu}
             <li className="vl-functional-header__action"><p><a onClick={logout}>Meld af</a></p></li>
           </ul>
         ) : (
@@ -33,9 +38,6 @@ export const FunctionalNavigation = observer(
       return <header id="vlaanderen-functional-nav" className="vl-functional-header vl-functional-header--has-actions" role="banner">
         <div className="vl-layout">
           <div className="vl-functional-header__row">
-            <div className="vl-functional-header__content">
-              <h1 className="vl-title">&nbsp;</h1>
-            </div>
             <div className="vl-functional-header__actions">
               {this.insertAuthMenu()}
             </div>

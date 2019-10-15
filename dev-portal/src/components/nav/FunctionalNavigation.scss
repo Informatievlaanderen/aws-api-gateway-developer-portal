@@ -14,10 +14,27 @@
   text-rendering: optimizeLegibility;
 }
 
+.vl-functional-header--has-actions::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 0rem;
+  background-color: #cad8eb;
+  z-index: 2;
+}
+
 .vl-functional-header__actions {
-  padding: 1rem .5rem;
-  margin-top: -1.2rem;
-  background-color: "#f7f9fc";
+  padding: 1.0rem 0.5rem 1rem;
+  float: right;
+  display: flex;
+  background-color: #cad8eb;
+  position: absolute;
+  top: 0;
+  right: 3rem;
+  margin-top: 0rem;
 }
 
 .vl-functional-header__actions a {

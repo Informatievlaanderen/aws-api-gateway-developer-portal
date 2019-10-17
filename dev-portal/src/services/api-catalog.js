@@ -148,6 +148,7 @@ export function subscribe(usagePlanId) {
   return apiGatewayClient()
     .then(apiGatewayClient => apiGatewayClient.put('/subscriptions/' + usagePlanId, {}, {}))
     .then(() => updateSubscriptions(true))
+    .then(() => updateApiKey(true))
 }
 
 export function unsubscribe(usagePlanId) {

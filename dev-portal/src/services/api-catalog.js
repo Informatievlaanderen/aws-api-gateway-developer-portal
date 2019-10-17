@@ -7,6 +7,10 @@ import { apiGatewayClient } from './api'
 import { store } from './state'
 import { isAdmin } from './self'
 
+function usagePlanFilter(usagePlan) {
+  return usagePlan.name.indexOf('-portal') !== -1;
+}
+
 /* Catalog and API Utils */
 
 /**
@@ -44,7 +48,7 @@ export function updateUsagePlansAndApisList(bustCache = false) {
   return catalogPromiseCache = apiGatewayClient()
     .then(apiGatewayClient => apiGatewayClient.get('/catalog', {}, {}, {}))
     .then(({ data = [] }) => {
-      store.usagePlans = data.apiGateway
+      store.usagePlans = data.apiGateway.filter(usagePlanFilter)
       store.apiList = {
         loaded: true,
         apiGateway: getApiGatewayApisFromUsagePlans(store.usagePlans), // MUST create

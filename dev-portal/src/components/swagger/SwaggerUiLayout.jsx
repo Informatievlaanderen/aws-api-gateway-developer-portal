@@ -81,9 +81,22 @@ const SubscriptionButtons = observer(class SubscriptionButtons extends React.Com
     return (
       (api && isAuthenticated()) ? !api.generic ? (
         api.subscribed ? (
-          <button onClick={() => unsubscribe(api.usagePlan.id)} className="vl-button vl-button--error">
-            Stoppen met gebruik maken van deze API
-          </button>
+          <div>
+            <button onClick={() => unsubscribe(api.usagePlan.id)} className="vl-button vl-button--error">
+              Stoppen met gebruik maken van deze API
+            </button>
+
+            <div className="vl-alert vl-alert--success" role="alert" style={{marginTop: '3rem'}}>
+              <div className="vl-alert__content">
+                <p className="vl-alert__title">Gebruik</p>
+                <div className="vl-alert__message">
+                  <p>API Key: <span id="api-key">{store.apiKey}</span></p>
+                  <p>Verzoeken beperkt tot {api.usagePlan.throttle.rateLimit} per seconde, en {api.usagePlan.throttle.burstLimit} in burst.</p>
+                  <p>Indien u meer verzoeken per seconde wenst, gelieve contact met ons op te nemen.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         ) : (
           <button onClick={() => subscribe(api.usagePlan.id)} className="vl-button">
             Van deze API gebruik maken

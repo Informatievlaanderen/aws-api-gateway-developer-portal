@@ -1,5 +1,5 @@
 function usagePlanFilter(usagePlan) {
-  return usagePlan.name.indexOf('-anonymous') === -1;
+  return usagePlan.name.indexOf('-portal') !== -1;
 }
 
 /**

@@ -32,9 +32,12 @@
   display: flex;
   background-color: #cad8eb;
   position: absolute;
-  top: 0;
   right: 3rem;
   margin-top: 0rem;
+
+  position: fixed;
+  top: 45px;
+  z-index: 10000;
 }
 
 .vl-functional-header__actions a {

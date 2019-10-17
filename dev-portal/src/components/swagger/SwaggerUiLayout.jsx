@@ -91,7 +91,7 @@ const SubscriptionButtons = observer(class SubscriptionButtons extends React.Com
                 <p className="vl-alert__title">Gebruik</p>
                 <div className="vl-alert__message">
                   <p>API Key: <span id="api-key">{store.apiKey}</span></p>
-                  <p>Verzoeken beperkt tot {api.usagePlan.throttle.rateLimit} per seconde, en {api.usagePlan.throttle.burstLimit} in burst.</p>
+                  <p>Verzoeken beperkt tot {api.usagePlan.throttle.rateLimit} per seconde.</p>
                   <p>Indien u meer verzoeken per seconde wenst, gelieve contact met ons op te nemen.</p>
                 </div>
               </div>

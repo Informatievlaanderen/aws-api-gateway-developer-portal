@@ -29,6 +29,9 @@
 .vl-content-header__actions {
   background: #cad8eb;
   padding: 1rem 0.5rem 1rem;
+  position: fixed;
+  top: 45px;
+  z-index: 10000;
 }
 
 .vl-content-header__actions a {

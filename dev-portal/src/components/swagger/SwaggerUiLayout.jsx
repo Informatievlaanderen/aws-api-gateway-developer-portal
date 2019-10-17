@@ -82,7 +82,7 @@ const SubscriptionButtons = observer(class SubscriptionButtons extends React.Com
       (api && isAuthenticated()) ? !api.generic ? (
         api.subscribed ? (
           <button onClick={() => unsubscribe(api.usagePlan.id)} className="vl-button vl-button--error">
-            Afmelden van deze API
+            Stoppen met gebruik maken van deze API
           </button>
         ) : (
           <button onClick={() => subscribe(api.usagePlan.id)} className="vl-button">
